@@ -1,0 +1,38 @@
+// assets/scss/app.scss
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+// 1. 引入 functions，才能操控顏色, svg, calc...
+@import "~/node_modules/bootstrap/scss/functions";
+
+// 2. 自訂變數，會覆蓋 bootstrap 的變數
+// @import "./variables";
+
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/utilities';
+
+// 5. 自訂 utilities
+// @import "./utilities";
+
+// 6. 引入需要的 bootstrap components
+// @import "~/node_modules/bootstrap/scss/reboot";
+// @import "~/node_modules/bootstrap/scss/type";
+// @import "~/node_modules/bootstrap/scss/images";
+// @import "~/node_modules/bootstrap/scss/containers";
+// @import "~/node_modules/bootstrap/scss/grid";
+// @import "~/node_modules/bootstrap/scss/tables";
+// @import "~/node_modules/bootstrap/scss/forms";
+// @import "~/node_modules/bootstrap/scss/buttons";
+// @import "~/node_modules/bootstrap/scss/helpers";
+// @import "~/node_modules/bootstrap/scss/nav";
+// ...
+@import "~/node_modules/bootstrap/scss/bootstrap";
+
+// 7. 使用 utilities 需引入 utilities api（將 sass map 轉換為 utility classes）
+@import "~/node_modules/bootstrap/scss/utilities/api";
+
+// 8. 客製樣式置於最後，覆蓋前面的樣式
+@import "./style";

@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Mantou Sans';
+    src: url('/public/fonts/MantouSans-Regular.ttf');
+    // src: url('webfont.eot');
+    // /* IE9 Compat Modes */
+    // src: url('webfont.eot?#iefix') format('embedded-opentype'),
+    //     /* IE6-IE8 */
+    //     url('webfont.woff') format('woff'),
+    //     /* Modern Browsers */
+    //     url('webfont.ttf') format('truetype'),
+    //     /* Safari, Android, iOS */
+    //     url('webfont.svg#svgFontName') format('svg');
+    // /* Legacy iOS */
+}
+
+// * {
+//     font-feature-settings: 'clig' off, 'liga' off;
+//     font-family: Mantou Sans;
+//     font-size: 96px;
+//     font-style: normal;
+//     font-weight: 400;
+//     line-height: 105%;
+//     /* 100.8px */
+//     letter-spacing: 2px;
+//     // font-family: 'Inter', sans-serif;
+// }
+:root {
+    --text-primary-700: #334155;
+    --primary: #DA7D4A;
+    --default-white: #FFFFFF;
+    --Gradient: linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%);
+    --rate:1;
+    --spacer-8:calc(var(--rate)*8px);
+    --spacer-16:calc(var(--rate)*16px);
+    --spacer-96:calc(var(--rate)*96px);
+}
+
+@media(max-width:1500px) {
+    html{
+        font-size: 14px;
+    
+    }
+    :root{
+        --rate:0.7;
+    }
+}
+
+@media(max-width:1320px) {
+    html{
+        font-size: 10px;
+    
+    }
+    :root{
+        --rate:0.5;
+    }
+}
+
+h6,
+.h6,
+h5,
+.h5,
+h4,
+.h4,
+h3,
+.h3,
+h2,
+.h2,
+h1,
+.h1 {
+    margin-bottom: 0;
+}
