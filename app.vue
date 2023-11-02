@@ -1,18 +1,23 @@
 <template>
-  <div v-if="loading" class="w-100 vh-100 bg-white"></div>
+  <teleport to="body">
+    <div v-if="loading" class="w-100 vh-100 bg-white z-3 position-fixed"></div>
+  </teleport>
   <Navbar title="喵立翰 Miao Li-Han" :logo=logo :menu=menuList :social=socialList></Navbar>
   <NuxtPage />
 </template>
 
 <script setup lang="ts">
-const loading = ref(false);
-const nuxtApp = useNuxtApp();
-nuxtApp.hook("page:start", () => {
-  loading.value = true;
-});
-nuxtApp.hook("page:finish", () => {
-  loading.value = false;
-});
+const loading = ref(true);
+// const nuxtApp = useNuxtApp();
+// nuxtApp.hook("page:start", () => {
+//   loading.value = true;
+// });
+// nuxtApp.hook("page:finish", () => {
+//   loading.value = false;
+// });
+onMounted(()=>{
+  loading.value=false;
+})
 
 const logo = ref({
   src: "/images/logo.svg",

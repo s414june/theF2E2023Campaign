@@ -4,7 +4,7 @@ import { defuFn } from '/Users/macbookair/Documents/GitHub/theF2E2023Campaign/no
 
 const inlineConfig = {
   "nuxt": {
-    "buildId": "bb542d33-c0d1-44bd-9e4e-15a5499b1a67"
+    "buildId": "test"
   }
 }
 

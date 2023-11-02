@@ -29,29 +29,18 @@
     --primary: #DA7D4A;
     --default-white: #FFFFFF;
     --Gradient: linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%);
-    --rate:1;
-    --spacer-8:calc(var(--rate)*8px);
-    --spacer-16:calc(var(--rate)*16px);
-    --spacer-96:calc(var(--rate)*96px);
+    --spacer-8:0.5rem;
+    --spacer-16:1rem;
+    --spacer-96:6rem;
 }
 
-@media(max-width:1500px) {
-    html{
+html{
+    font-size: 1vw;
+    @media(max-width:720px) {
         font-size: 14px;
-    
     }
-    :root{
-        --rate:0.65;
-    }
-}
-
-@media(max-width:1320px) {
-    html{
-        font-size: 10px;
-    
-    }
-    :root{
-        --rate:0.5;
+    @media(max-width:1400px) {
+        font-size: 12px;
     }
 }
 
@@ -68,4 +57,8 @@ h2,
 h1,
 .h1 {
     margin-bottom: 0;
+}
+
+button{
+    border: none;
 }
