@@ -7,6 +7,5 @@ export default defineNuxtConfig({
       content:"width=device-width, initial-scale=1"
     }]
   },
-  css: ['/public/scss/app.scss'],
-  
+  css: ['/public/scss/app.scss']
 })

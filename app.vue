@@ -1,13 +1,18 @@
 <template>
   <teleport to="body">
-    <div v-if="loading" class="w-100 vh-100 bg-white z-3 position-fixed"></div>
+    <Transition>
+      <div v-if="!mounted||!animated" class="w-100 vh-100 bg-white z-3 position-fixed d-flex justify-content-center align-items-center">
+        <img src="/images/loading.gif" alt="loading...">
+      </div>
+    </Transition>
   </teleport>
   <Navbar title="喵立翰 Miao Li-Han" :logo=logo :menu=menuList :social=socialList></Navbar>
   <NuxtPage />
 </template>
 
 <script setup lang="ts">
-const loading = ref(true);
+const mounted = ref(false);
+const animated = ref(false);
 // const nuxtApp = useNuxtApp();
 // nuxtApp.hook("page:start", () => {
 //   loading.value = true;
@@ -15,9 +20,12 @@ const loading = ref(true);
 // nuxtApp.hook("page:finish", () => {
 //   loading.value = false;
 // });
-onMounted(()=>{
-  loading.value=false;
+onMounted(() => {
+  mounted.value = true;
 })
+setTimeout(() => {
+  animated.value = true;
+}, 1500);
 
 const logo = ref({
   src: "/images/logo.svg",
@@ -51,15 +59,26 @@ const socialList = ref([{
   alt: "facebook",
   title: "facebook",
   href: "#"
-},{
+}, {
   src: "/images/ig.svg",
   alt: "instagram",
   title: "instagram",
   href: "#"
-},{
+}, {
   src: "/images/yt.svg",
   alt: "youtube",
   title: "youtube",
   href: "#"
 }]);
 </script>
+<style>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>
