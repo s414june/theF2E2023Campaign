@@ -1,7 +1,7 @@
 <template>
     <main>
         <section class="lead">
-            <h1>台灣的明天 喵先鋪路</h1>
+            <h1 class="slogan">台灣的明天 喵先鋪路</h1>
             <section class="info">
                 <button>2024 立委參選人</button>
                 <div class="name">
@@ -21,26 +21,85 @@
             </span>
         </div>
     </div>
-    <section class="claim" id="claim">
-        <div class="card mb-3">
-            <div class="row g-0">
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h2>候選人主張</h2>
-                        <h3>我堅信 ! 藉由推動更完善的<span>貓咪福利</span>和相關政策，更是間接地投資於<span>台灣的未來</span>。</h3>
-                        <p>
-                            畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的貓咪福利政策，為台灣的 GDP 經濟帶來巨大效益。
-                            因此，我期望能在立法院內推進這些政策，確保每一隻貓咪都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始。
-                        </p>
+    <section class="page bg-light claim" id="claim">
+        <CardWithImage>
+            <template v-slot:body>
+                <h2 class="page-title">候選人主張</h2>
+                <h3>我堅信 ! 藉由推動更完善的<span>貓咪福利</span>和相關政策，更是間接地投資於<span>台灣的未來</span>。</h3>
+                <p>
+                    畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的貓咪福利政策，為台灣的 GDP 經濟帶來巨大效益。
+                    因此，我期望能在立法院內推進這些政策，確保每一隻貓咪都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始。
+                </p>
+            </template>
+            <template v-slot:image>
+                <div class="claim-image"></div>
+            </template>
+        </CardWithImage>
+    </section>
+    <section class="page bg-white news" id="news">
+        <h2 class="page-title">最新活動</h2>
+        <div class="row">
+            <template v-for="(news, index) in newsList">
+                <div class="col-6 news-top" v-if="index === 0">
+                    <img :src="news.image" :alt="news.title">
+                    <span class="time">{{ news.time }}</span>
+                    <h5>{{ news.title }}</h5>
+                    <p>{{ news.desc }}</p>
+                </div>
+            </template>
+            <div class="col-6 news-list">
+                <template v-for="(news, index) in newsList">
+                    <div class="row" v-if="index > 0">
+                        <div class="col-4">
+                            <img :src="news.image" :alt="news.title">
+                        </div>
+                        <div class="col-8">
+                            <span class="time">{{ news.time }}</span>
+                            <h6>{{ news.title }}</h6>
+                            <p>{{ news.desc }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="claim-image"></div>
-                </div>
+                </template>
+                <ButtomWithGoto class="more-btn" text="查看更多"></ButtomWithGoto>
             </div>
         </div>
-
     </section>
+    <section class="page bg-white issue" id="issue">
+        <h2 class="page-title">政策議題</h2>
+        <div class="row">
+            <div class="col-4 issue-list d-flex flex-column justify-content-between" v-for="issue in issueList">
+                <h4>{{ issue.title }}</h4>
+                <img :src="issue.image" :alt="issue.title">
+            </div>
+        </div>
+    </section>
+    <section class="page bg-white donate" id="donate">
+        <div class="row">
+            <Card class="bg-primary col-6">
+                <h3>小額支持喵喵</h3>
+                <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
+                <ButtomWithGoto text="小額捐款"></ButtomWithGoto>
+            </Card>
+            <Card class="bg-dark col-6">
+                <h3>小額支持喵喵</h3>
+                <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
+                <ButtomWithGoto text="小額捐款"></ButtomWithGoto>
+            </Card>
+        </div>
+    </section>
+    <section class="page d-flex flex-column align-items-center">
+        <h2 class="mb-2">台灣的明天 喵先鋪路</h2>
+        <div class="name">
+            <span>3</span>
+            <h1>喵立翰 Miao LiHan</h1>
+        </div>
+    </section>
+    <footer class="bg-light">
+        <div class="name">
+            <span>3</span>
+            <h1>喵立翰 Miao LiHan</h1>
+        </div>
+    </footer>
 </template>
 <style scoped lang="scss">
 main {
@@ -58,24 +117,120 @@ main {
 }
 
 h1 {
-    font-feature-settings: 'clig' off, 'liga' off;
+    color: var(--primary, #DA7D4A);
+
+    /* Bold/H1 Heading */
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 60px */
+    letter-spacing: -0.8px;
+
+    .slogan {
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Mantou Sans;
+        // font-size: 96px;
+        font-size: 7.4rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 105%;
+        /* 100.8px */
+        letter-spacing: 2px;
+        background: var(--Gradient, linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+
+        @media(max-width:720px) {
+            word-break: keep-all;
+        }
+    }
+}
+
+
+h2 {
     font-family: Mantou Sans;
-    // font-size: 96px;
-    font-size: 7.4rem;
+    font-size: 64px;
     font-style: normal;
     font-weight: 400;
-    line-height: 105%;
-    /* 100.8px */
-    letter-spacing: 2px;
+    line-height: normal;
     background: var(--Gradient, linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-align: center;
+}
 
-    @media(max-width:720px) {
-        word-break: keep-all;
+h3 {
+    align-self: stretch;
+    color: var(--text-primary-700, #334155);
+
+    /* Bold/H3 Heading */
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    span {
+        color: var(--primary, #DA7D4A);
+
+        /* Bold/H3 Heading */
+        font-family: Inter;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
     }
+
+}
+
+h4 {
+    color: var(--text-primary-700, #334155);
+
+    /* Bold/H4 Heading */
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 36px */
+}
+
+h5 {
+    color: var(--text-primary-700, #334155);
+
+    /* Bold / H5 Heading */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+h6 {
+    color: var(--text-primary-700, #334155);
+
+    /* Bold/H6 Heading */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+p {
+    color: var(--text-primary-700, #334155);
+
+    /* Body/Base text */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 27px */
 }
 
 .lead {
@@ -110,48 +265,48 @@ h1 {
             line-height: normal;
         }
     }
+}
 
-    .name {
+.name {
+    display: flex;
+    padding: var(--spacer-12, 12px) var(--spacer-16, 16px);
+    align-items: center;
+    gap: var(--spacer-16, 16px);
+
+    span {
         display: flex;
-        padding: var(--spacer-12, 12px) var(--spacer-16, 16px);
+        width: 4rem;
+        height: 4rem;
+        padding: 7.353px 16.912px;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: var(--spacer-16, 16px);
+        gap: 7.353px;
+        border-radius: 367.647px;
+        background: var(--Gradient, linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%));
+        color: var(--default-white, #FFF);
+        text-align: center;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Inter;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 150%;
+        /* 48px */
+    }
 
-        span {
-            display: flex;
-            width: 4rem;
-            height: 4rem;
-            padding: 7.353px 16.912px;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 7.353px;
-            border-radius: 367.647px;
-            background: var(--Gradient, linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%));
-            color: var(--default-white, #FFF);
-            text-align: center;
-            font-feature-settings: 'clig' off, 'liga' off;
-            font-family: Inter;
-            font-size: 2rem;
-            font-style: normal;
-            font-weight: 900;
-            line-height: 150%;
-            /* 48px */
-        }
+    h1 {
+        color: var(--primary, #DA7D4A);
 
-        h1 {
-            color: var(--primary, #DA7D4A);
-
-            /* Bold/H1 Heading */
-            font-family: Inter;
-            // font-size: 40px;
-            font-size: 2.5rem;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 150%;
-            /* 60px */
-            letter-spacing: -0.8px;
-        }
+        /* Bold/H1 Heading */
+        font-family: Inter;
+        // font-size: 40px;
+        font-size: 2.5rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        /* 60px */
+        letter-spacing: -0.8px;
     }
 }
 
@@ -193,85 +348,133 @@ h1 {
     }
 }
 
-.claim {
+.page {
     display: flex;
     padding: 104px calc(300px*100vw/1920px);
     flex-direction: column;
     align-items: center;
     align-self: stretch;
-    background: var(--bg-2, #F7ECE1);
+}
 
-    .card {
-        flex-direction: row;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: var(--spacer-32, 32px);
-        flex: 1 0 0;
-        // align-self: stretch;
-        border-radius: var(--spacer-24, 24px);
-        background: var(--default-white, #FFF);
-        // overflow: hidden;
+.claim-image {
+    background-image: url(/images/claim.png);
+    height: 100%;
+    align-self: stretch;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 var(--spacer-24, 24px) var(--spacer-24, 24px) 0;
+}
 
-        .card-body {
-            padding: var(--spacer-64, 64px) 40px;
+.more-btn {
+    background: var(--gray-100, #F1F5F9);
+}
+
+.news {
+    p {
+        color: var(--text-primary-700, #334155);
+
+        /* Body/Body */
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        /* 24px */
+    }
+
+    img {
+        width: 100%;
+        background: url(<path-to-image>), lightgray 50% / cover no-repeat, var(--gray-200, #E2E8F0);
+    }
+
+    .time {
+        color: var(--gray-500, #94A3B8);
+
+        /* Body/Small */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        /* 21px */
+    }
+
+    .news-top {
+        img {
+            border-radius: var(--spacer-16, 16px);
+            background: url(<path-to-image>), lightgray 50% / cover no-repeat, var(--gray-200, #E2E8F0);
         }
+    }
 
-        h2 {
-            font-family: Mantou Sans;
-            font-size: 64px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            background: var(--Gradient, linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        h3 {
-            align-self: stretch;
-            color: var(--text-primary-700, #334155);
-
-            /* Bold/H3 Heading */
-            font-family: Inter;
-            font-size: 28px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-
-            span {
-                color: var(--primary, #DA7D4A);
-
-                /* Bold/H3 Heading */
-                font-family: Inter;
-                font-size: 28px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: normal;
-            }
-
-        }
-        p {
-            color: var(--text-primary-700, #334155);
-
-            /* Body/Base text */
-            font-family: Inter;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%;
-            /* 27px */
-        }
-
-        .claim-image {
-            background-image: url(/images/claim.png);
-            height: 100%;
-            align-self: stretch;
-            background-size: cover;
-            background-position: center;
-            border-radius: 0 var(--spacer-24, 24px) var(--spacer-24, 24px) 0;
+    .news-list {
+        img {
+            border-radius: 8px;
         }
     }
 }
+
+.donate {
+
+    h3,
+    p {
+        color: #FFF;
+    }
+
+    .row {
+        gap: 24px;
+    }
+}
+
+.issue-list {
+    h4 {
+        padding: 0px var(--spacer-16, 16px) var(--spacer-16, 16px) var(--spacer-16, 16px);
+    }
+
+    img {
+        border-radius: var(--spacer-24, 24px);
+        background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    }
+}
 </style>
+<script setup>
+const newsList = ref([
+    {
+        title: "參與台北寵物論壇，爭取貓咪友善環境",
+        time: "2023/12/26",
+        desc: "炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的 VIP 休憩空間。",
+        image: "images/news1.png"
+    },
+    {
+        title: "掃街模式開啟！帶著你的貓耳，來和我一起走！",
+        time: "2023/12/24",
+        desc: "街上氣氛真的很棒，從小孩到大人，甚至有些狗狗朋友都帶著貓耳來找我握手，真的太可愛了！",
+        image: "images/news2.png"
+    },
+    {
+        title: "收容所模特兒大比拼！",
+        time: "2023/12/20",
+        desc: "今天的收容所不再是一片寂靜。為了讓更多人認識到這裡的毛孩子，我們舉辦了一場前所未有的「模特兒走秀」！",
+        image: "images/news3.png"
+    },
+    {
+        title: "參與台北寵物論壇，爭取貓咪友善環境",
+        time: "2023/12/26",
+        desc: "炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！",
+        image: "images/news1.png"
+    }
+])
+const issueList = ref([
+    {
+        title: "參與台北寵物論壇，爭取貓咪友善環境",
+        image: "images/issue1.png"
+    },
+    {
+        title: "掃街模式開啟！帶著你的貓耳，來和我一起走！",
+        image: "images/issue2.png"
+    },
+    {
+        title: "收容所模特兒大比拼！",
+        image: "images/issue3.png"
+    }
+])
+</script>

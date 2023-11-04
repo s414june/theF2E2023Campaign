@@ -29,19 +29,22 @@
     --primary: #DA7D4A;
     --default-white: #FFFFFF;
     --Gradient: linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%);
-    --spacer-8:0.5rem;
-    --spacer-16:1rem;
-    --spacer-96:6rem;
+    --spacer-8: 0.5rem;
+    --spacer-16: 1rem;
+    --spacer-96: 6rem;
 }
 
-html{
+html {
     font-size: 1vw;
+
     @media(max-width:720px) {
         font-size: 14px;
     }
+
     @media(max-width:1400px) {
         font-size: 12px;
     }
+    background-color: #FFFFFF;
 }
 
 h6,
@@ -59,6 +62,22 @@ h1,
     margin-bottom: 0;
 }
 
-button{
+button {
     border: none;
+}
+
+.bg-light {
+    background-color: #F7ECE1 !important;
+}
+
+.bg-primary {
+    background: var(--primary, #DA7D4A) !important;
+}
+
+.bg-dark {
+    background: var(--text-primary-700, #334155) !important;
+}
+
+.mb-2{
+    margin-bottom: 16px !important;
 }
