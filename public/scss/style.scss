@@ -32,19 +32,27 @@
     --spacer-8: 0.5rem;
     --spacer-16: 1rem;
     --spacer-96: 6rem;
+    --bs-body-bg: #FDFCFB;
 }
 
 html {
     font-size: 1vw;
 
-    @media(max-width:720px) {
+    @media(max-width:992px) {
         font-size: 14px;
     }
 
     @media(max-width:1400px) {
         font-size: 12px;
     }
-    background-color: #FFFFFF;
+}
+
+body{
+    background: var(--bg, #FDFCFB);
+    margin-top: calc(var(--spacer-16, 16px)*2 + 75px);
+    @media (max-width:992px) {
+        margin-bottom: 63px;
+    }
 }
 
 h6,
@@ -78,6 +86,6 @@ button {
     background: var(--text-primary-700, #334155) !important;
 }
 
-.mb-2{
+.mb-2 {
     margin-bottom: 16px !important;
 }

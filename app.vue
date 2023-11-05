@@ -6,8 +6,8 @@
       </div>
     </Transition>
   </teleport>
-  <Navbar title="喵立翰 Miao Li-Han" :logo=logo :menu=menuList :social=socialList></Navbar>
-  <NuxtPage />
+  <Navbar title="喵立翰 Miao Li-Han" :logo=logo :menu=menuList :social=socialList class="position-fixed z-3 top-0"></Navbar>
+  <NuxtPage :social=socialList />
 </template>
 
 <script setup lang="ts">
@@ -34,25 +34,30 @@ const logo = ref({
 })
 const menuList = ref([{
   title: "候選人主張",
-  href: "#",
-  active: false
+  href: "#claim",
+  active: false,
+  image:"/images/claim.svg"
 },
 {
   title: "最新活動",
-  href: "#",
-  active: false
+  href: "#news",
+  active: false,
+  image:"/images/news.svg"
 }, {
   title: "政策議題",
-  href: "#",
-  active: false
+  href: "#issue",
+  active: false,
+  image:"/images/issue.svg"
 }, {
   title: "小額捐款",
-  href: "#",
-  active: false
+  href: "#donate",
+  active: false,
+  image:"/images/donate.svg"
 }, {
   title: "民眾服務信箱",
-  href: "#",
-  active: false
+  href: "#mail",
+  active: false,
+  image:"/images/mail.svg"
 }]);
 const socialList = ref([{
   src: "/images/fb.svg",

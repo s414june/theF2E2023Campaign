@@ -8,6 +8,7 @@
 </template>
 <style scoped lang="scss">
 button {
+    height: fit-content;
     display: flex;
     padding: var(--spacer-16, 16px) var(--spacer-24, 24px);
     align-items: center;

@@ -1,26 +1,28 @@
 <template>
     <main>
-        <section class="lead">
-            <h1 class="slogan">台灣的明天 喵先鋪路</h1>
-            <section class="info">
-                <button>2024 立委參選人</button>
-                <div class="name">
-                    <span>3</span>
-                    <h1>喵立翰 Miao LiHan</h1>
-                </div>
+        <div>
+            <section class="lead">
+                <h1 class="slogan">台灣的明天 喵先鋪路</h1>
+                <section class="info">
+                    <button>2024 立委參選人</button>
+                    <div class="name has-bg">
+                        <span>3</span>
+                        <h1>喵立翰 Miao Li-Han</h1>
+                    </div>
+                </section>
             </section>
-        </section>
-        <div class="lead-image">
-            <img src="/images/lead.png" alt="喵立翰 Miao LiHan 頭像">
+            <div class="lead-image">
+                <img src="/images/lead.png" alt="喵立翰 Miao Li-Han 頭像">
+            </div>
+        </div>
+        <div class="marquee">
+            <div>
+                <span>
+                    為喵星人，護台灣！ 從喵的眼中，看見台灣 喵的未來，人的希望
+                </span>
+            </div>
         </div>
     </main>
-    <div class="marquee">
-        <div>
-            <span>
-                為喵星人，護台灣！ 從喵的眼中，看見台灣 喵的未來，人的希望
-            </span>
-        </div>
-    </div>
     <section class="page bg-light claim" id="claim">
         <CardWithImage>
             <template v-slot:body>
@@ -73,46 +75,80 @@
             </div>
         </div>
     </section>
-    <section class="page bg-white donate" id="donate">
+    <section class="page bg-white donate-and-mail">
         <div class="row">
-            <Card class="bg-primary col-6">
+            <Card class="bg-primary col-6 donate" id="donate">
                 <h3>小額支持喵喵</h3>
                 <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
-                <ButtomWithGoto text="小額捐款"></ButtomWithGoto>
+                <div class="d-flex flex-grow-1 align-items-end justify-content-between">
+                    <ButtomWithGoto text="小額捐款"></ButtomWithGoto>
+                    <img src="/images/donate.png" alt="小額捐款">
+                </div>
             </Card>
-            <Card class="bg-dark col-6">
-                <h3>小額支持喵喵</h3>
-                <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
-                <ButtomWithGoto text="小額捐款"></ButtomWithGoto>
+            <Card class="bg-dark col-6 mail" id="mail">
+                <h3>民眾服務信箱</h3>
+                <p>親愛的鄉親，每一位市民的意見都是我們社區前進的原動力</p>
+                <div class="d-flex flex-grow-1 align-items-end">
+                    <ButtomWithGoto text="填寫表單"></ButtomWithGoto>
+                </div>
             </Card>
         </div>
     </section>
     <section class="page d-flex flex-column align-items-center">
         <h2 class="mb-2">台灣的明天 喵先鋪路</h2>
-        <div class="name">
+        <div class="name has-bg">
             <span>3</span>
-            <h1>喵立翰 Miao LiHan</h1>
+            <h1>喵立翰 Miao Li-Han</h1>
         </div>
     </section>
     <footer class="bg-light">
-        <div class="name">
-            <span>3</span>
-            <h1>喵立翰 Miao LiHan</h1>
+        <div class="row w-100">
+            <div class="col-6">
+                <div class="name">
+                    <span>3</span>
+                    <h1>喵立翰 Miao Li-Han</h1>
+                </div>
+                <div class="d-flex social">
+                    <a :href="list.href" v-for="list in social">
+                        <img :src="list.src" :alt="list.alt" :title="list.title">
+                    </a>
+                </div>
+                <span>© 2023 喵立翰 Miao Li-Han 版權所有</span>
+            </div>
+            <div class="col-6">
+                <h4>競選總部</h4>
+                <ul>
+                    <li>辦公室地址：喵星區，毛茸茸大道88號，喵喵大樓3樓</li>
+                    <li>電話：(02) 888-5678</li>
+                    <li> 電子郵件地址：meowoffice@linmeow.tw</li>
+                </ul>
+            </div>
         </div>
+
     </footer>
 </template>
 <style scoped lang="scss">
 main {
-    display: flex;
-    padding: 0px calc(276px*100vw/1920px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacer-8, 8px);
-    align-self: stretch;
+    position: relative;
 
-    @media(max-width:720px) {
-        padding: 0px 36px;
+    >div {
+        display: flex;
+        padding: 0px calc(276px*100vw/1920px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacer-8, 8px);
+        align-self: stretch;
+        background: var(--default-white, #FFF);
+        position: relative;
+
+        @media(max-width:992px) {
+            padding: 0px 36px;
+        }
+    }
+
+    @media(max-width:992px) {
+        padding-top: 70px;
     }
 }
 
@@ -128,7 +164,7 @@ h1 {
     /* 60px */
     letter-spacing: -0.8px;
 
-    .slogan {
+    &.slogan {
         font-feature-settings: 'clig' off, 'liga' off;
         font-family: Mantou Sans;
         // font-size: 96px;
@@ -143,9 +179,10 @@ h1 {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-align: center;
+        word-break: keep-all;
 
-        @media(max-width:720px) {
-            word-break: keep-all;
+        @media(max-width:992px) {
+            font-size: 52px;
         }
     }
 }
@@ -273,6 +310,13 @@ p {
     align-items: center;
     gap: var(--spacer-16, 16px);
 
+    &.has-bg {
+        border-radius: var(--spacer-16, 16px);
+        border: 1px solid var(--default-white, #FFF);
+        background: rgba(255, 255, 255, 0.90);
+        box-shadow: 0px 4px 12px 0px rgba(163, 180, 203, 0.20);
+    }
+
     span {
         display: flex;
         width: 4rem;
@@ -321,6 +365,7 @@ p {
 }
 
 .marquee {
+    width: 100%;
     display: flex;
     padding: 10px;
     justify-content: center;
@@ -329,6 +374,11 @@ p {
     align-self: stretch;
     background: var(--primary, #DA7D4A);
     overflow: hidden;
+
+    @media (max-width:992px) {
+        position: absolute;
+        top: 0;
+    }
 
     div {
         width: -webkit-fill-available;
@@ -384,7 +434,6 @@ p {
 
     img {
         width: 100%;
-        background: url(<path-to-image>), lightgray 50% / cover no-repeat, var(--gray-200, #E2E8F0);
     }
 
     .time {
@@ -402,7 +451,6 @@ p {
     .news-top {
         img {
             border-radius: var(--spacer-16, 16px);
-            background: url(<path-to-image>), lightgray 50% / cover no-repeat, var(--gray-200, #E2E8F0);
         }
     }
 
@@ -413,7 +461,7 @@ p {
     }
 }
 
-.donate {
+.donate-and-mail {
 
     h3,
     p {
@@ -422,6 +470,12 @@ p {
 
     .row {
         gap: 24px;
+    }
+
+    .donate {
+        img {
+            width: 50%;
+        }
     }
 }
 
@@ -432,11 +486,93 @@ p {
 
     img {
         border-radius: var(--spacer-24, 24px);
-        background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    }
+}
+
+footer {
+    display: flex;
+    padding: var(--spacer-64, 64px) calc(300px*100vw/1920px);
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+
+    .row>div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacer-16, 16px);
+        flex: 1 0 0;
+    }
+
+    .name {
+        padding: 0;
+
+        span {
+            width: 32px;
+            height: 32px;
+            padding: 4.706px 10.824px;
+            font-size: 20.48px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+    }
+
+    .social {
+        display: flex;
+        align-items: center;
+        gap: var(--spacer-8, 8px);
+
+        a {
+            display: flex;
+            width: 48px;
+            height: 48px;
+            padding: 14px 10px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 500px;
+            background: var(--default-white, #FFF);
+        }
+    }
+
+    span {
+        color: var(--text-primary-700, #334155);
+
+        /* Body/Small */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        /* 21px */
+    }
+
+    li {
+        list-style: none;
+        color: var(--text-primary-700, #334155);
+
+        /* Body/Body */
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        /* 24px */
     }
 }
 </style>
-<script setup>
+<script setup  lang="ts">
+interface Social {
+    src: string;
+    alt: string;
+    title: string;
+    href: string;
+}
+defineProps({
+    social: Array<Social>
+})
 const newsList = ref([
     {
         title: "參與台北寵物論壇，爭取貓咪友善環境",
@@ -469,11 +605,11 @@ const issueList = ref([
         image: "images/issue1.png"
     },
     {
-        title: "掃街模式開啟！帶著你的貓耳，來和我一起走！",
+        title: "打造休閒天堂！推廣寵物休閒與娛樂場所",
         image: "images/issue2.png"
     },
     {
-        title: "收容所模特兒大比拼！",
+        title: "推廣寵物飼養教育，讓愛更加專業",
         image: "images/issue3.png"
     }
 ])
