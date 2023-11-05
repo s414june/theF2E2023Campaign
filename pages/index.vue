@@ -1,133 +1,143 @@
 <template>
-    <main>
-        <div>
-            <section class="lead">
-                <h1 class="slogan">台灣的明天 喵先鋪路</h1>
-                <section class="info">
-                    <button>2024 立委參選人</button>
-                    <div class="name has-bg">
+    <div id="app">
+        <main>
+            <div>
+                <section class="lead">
+                    <h1 class="slogan">台灣的明天 喵先鋪路</h1>
+                    <section class="info">
+                        <button>2024 立委參選人</button>
+                        <div class="name has-bg">
+                            <span>3</span>
+                            <h1>喵立翰 Miao Li-Han</h1>
+                        </div>
+                    </section>
+                </section>
+                <div class="lead-image">
+                    <img src="/images/lead.png" alt="喵立翰 Miao Li-Han 頭像">
+                </div>
+            </div>
+            <div class="marquee">
+                <div>
+                    <span>
+                        為喵星人，護台灣！ 從喵的眼中，看見台灣 喵的未來，人的希望
+                    </span>
+                </div>
+            </div>
+        </main>
+        <section class="page bg-light claim" id="claim">
+            <CardWithImage>
+                <template v-slot:body>
+                    <h2 class="page-title">候選人主張</h2>
+                    <h3>我堅信 ! 藉由推動更完善的<span>貓咪福利</span>和相關政策，更是間接地投資於<span>台灣的未來</span>。</h3>
+                    <p>
+                        畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的貓咪福利政策，為台灣的 GDP 經濟帶來巨大效益。
+                        因此，我期望能在立法院內推進這些政策，確保每一隻貓咪都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始。
+                    </p>
+                </template>
+                <template v-slot:image>
+                    <div class="claim-image"></div>
+                </template>
+            </CardWithImage>
+        </section>
+        <section class="page bg-white news" id="news">
+            <h2 class="page-title">最新活動</h2>
+            <div class="row">
+                <template v-for="(news, index) in newsList">
+                    <div class="col-6 news-top" v-if="index === 0">
+                        <img :src="news.image" :alt="news.title">
+                        <span class="time">{{ news.time }}</span>
+                        <h5>{{ news.title }}</h5>
+                        <p>{{ news.desc }}</p>
+                    </div>
+                </template>
+                <div class="col-6 news-list">
+                    <template v-for="(news, index) in newsList">
+                        <div class="row" v-if="index > 0">
+                            <div class="col-4">
+                                <img :src="news.image" :alt="news.title">
+                            </div>
+                            <div class="col-8">
+                                <span class="time">{{ news.time }}</span>
+                                <h6>{{ news.title }}</h6>
+                                <p>{{ news.desc }}</p>
+                            </div>
+                        </div>
+                    </template>
+                    <ButtomWithGoto class="more-btn" text="查看更多"></ButtomWithGoto>
+                </div>
+            </div>
+        </section>
+        <section class="page bg-white issue" id="issue">
+            <h2 class="page-title">政策議題</h2>
+            <div class="row">
+                <div class="col-4 issue-list d-flex flex-column justify-content-between" v-for="issue in issueList">
+                    <h4>{{ issue.title }}</h4>
+                    <img :src="issue.image" :alt="issue.title">
+                </div>
+            </div>
+        </section>
+        <section class="page bg-white donate-and-mail">
+            <div class="row">
+                <Card class="bg-primary col-6 donate" id="donate">
+                    <h3>小額支持喵喵</h3>
+                    <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
+                    <div class="d-flex flex-grow-1 align-items-end justify-content-between">
+                        <ButtomWithGoto text="小額捐款"></ButtomWithGoto>
+                        <img src="/images/donate.png" alt="小額捐款">
+                    </div>
+                </Card>
+                <Card class="bg-dark col-6 mail" id="mail">
+                    <h3>民眾服務信箱</h3>
+                    <p>親愛的鄉親，每一位市民的意見都是我們社區前進的原動力</p>
+                    <div class="d-flex flex-grow-1 align-items-end">
+                        <ButtomWithGoto text="填寫表單"></ButtomWithGoto>
+                    </div>
+                </Card>
+            </div>
+        </section>
+        <section class="page d-flex flex-column align-items-center">
+            <h2 class="mb-2">台灣的明天 喵先鋪路</h2>
+            <div class="name has-bg">
+                <span>3</span>
+                <h1>喵立翰 Miao Li-Han</h1>
+            </div>
+        </section>
+        <footer class="bg-light">
+            <div class="row w-100">
+                <div class="col-6">
+                    <div class="name">
                         <span>3</span>
                         <h1>喵立翰 Miao Li-Han</h1>
                     </div>
-                </section>
-            </section>
-            <div class="lead-image">
-                <img src="/images/lead.png" alt="喵立翰 Miao Li-Han 頭像">
-            </div>
-        </div>
-        <div class="marquee">
-            <div>
-                <span>
-                    為喵星人，護台灣！ 從喵的眼中，看見台灣 喵的未來，人的希望
-                </span>
-            </div>
-        </div>
-    </main>
-    <section class="page bg-light claim" id="claim">
-        <CardWithImage>
-            <template v-slot:body>
-                <h2 class="page-title">候選人主張</h2>
-                <h3>我堅信 ! 藉由推動更完善的<span>貓咪福利</span>和相關政策，更是間接地投資於<span>台灣的未來</span>。</h3>
-                <p>
-                    畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的貓咪福利政策，為台灣的 GDP 經濟帶來巨大效益。
-                    因此，我期望能在立法院內推進這些政策，確保每一隻貓咪都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始。
-                </p>
-            </template>
-            <template v-slot:image>
-                <div class="claim-image"></div>
-            </template>
-        </CardWithImage>
-    </section>
-    <section class="page bg-white news" id="news">
-        <h2 class="page-title">最新活動</h2>
-        <div class="row">
-            <template v-for="(news, index) in newsList">
-                <div class="col-6 news-top" v-if="index === 0">
-                    <img :src="news.image" :alt="news.title">
-                    <span class="time">{{ news.time }}</span>
-                    <h5>{{ news.title }}</h5>
-                    <p>{{ news.desc }}</p>
-                </div>
-            </template>
-            <div class="col-6 news-list">
-                <template v-for="(news, index) in newsList">
-                    <div class="row" v-if="index > 0">
-                        <div class="col-4">
-                            <img :src="news.image" :alt="news.title">
-                        </div>
-                        <div class="col-8">
-                            <span class="time">{{ news.time }}</span>
-                            <h6>{{ news.title }}</h6>
-                            <p>{{ news.desc }}</p>
-                        </div>
+                    <div class="d-flex social">
+                        <a :href="list.href" v-for="list in social">
+                            <img :src="list.src" :alt="list.alt" :title="list.title">
+                        </a>
                     </div>
-                </template>
-                <ButtomWithGoto class="more-btn" text="查看更多"></ButtomWithGoto>
-            </div>
-        </div>
-    </section>
-    <section class="page bg-white issue" id="issue">
-        <h2 class="page-title">政策議題</h2>
-        <div class="row">
-            <div class="col-4 issue-list d-flex flex-column justify-content-between" v-for="issue in issueList">
-                <h4>{{ issue.title }}</h4>
-                <img :src="issue.image" :alt="issue.title">
-            </div>
-        </div>
-    </section>
-    <section class="page bg-white donate-and-mail">
-        <div class="row">
-            <Card class="bg-primary col-6 donate" id="donate">
-                <h3>小額支持喵喵</h3>
-                <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
-                <div class="d-flex flex-grow-1 align-items-end justify-content-between">
-                    <ButtomWithGoto text="小額捐款"></ButtomWithGoto>
-                    <img src="/images/donate.png" alt="小額捐款">
+                    <span>© 2023 喵立翰 Miao Li-Han 版權所有</span>
                 </div>
-            </Card>
-            <Card class="bg-dark col-6 mail" id="mail">
-                <h3>民眾服務信箱</h3>
-                <p>親愛的鄉親，每一位市民的意見都是我們社區前進的原動力</p>
-                <div class="d-flex flex-grow-1 align-items-end">
-                    <ButtomWithGoto text="填寫表單"></ButtomWithGoto>
+                <div class="col-6">
+                    <h4>競選總部</h4>
+                    <ul>
+                        <li>辦公室地址：喵星區，毛茸茸大道88號，喵喵大樓3樓</li>
+                        <li>電話：(02) 888-5678</li>
+                        <li> 電子郵件地址：meowoffice@linmeow.tw</li>
+                    </ul>
                 </div>
-            </Card>
-        </div>
-    </section>
-    <section class="page d-flex flex-column align-items-center">
-        <h2 class="mb-2">台灣的明天 喵先鋪路</h2>
-        <div class="name has-bg">
-            <span>3</span>
-            <h1>喵立翰 Miao Li-Han</h1>
-        </div>
-    </section>
-    <footer class="bg-light">
-        <div class="row w-100">
-            <div class="col-6">
-                <div class="name">
-                    <span>3</span>
-                    <h1>喵立翰 Miao Li-Han</h1>
-                </div>
-                <div class="d-flex social">
-                    <a :href="list.href" v-for="list in social">
-                        <img :src="list.src" :alt="list.alt" :title="list.title">
-                    </a>
-                </div>
-                <span>© 2023 喵立翰 Miao Li-Han 版權所有</span>
             </div>
-            <div class="col-6">
-                <h4>競選總部</h4>
-                <ul>
-                    <li>辦公室地址：喵星區，毛茸茸大道88號，喵喵大樓3樓</li>
-                    <li>電話：(02) 888-5678</li>
-                    <li> 電子郵件地址：meowoffice@linmeow.tw</li>
-                </ul>
-            </div>
-        </div>
 
-    </footer>
+        </footer>
+    </div>
 </template>
 <style scoped lang="scss">
+#app {
+    margin-top: calc(var(--spacer-16, 16px)*2 + 75px);
+
+    @media (max-width:992px) {
+        margin-bottom: 63px;
+    }
+}
+
 main {
     position: relative;
 

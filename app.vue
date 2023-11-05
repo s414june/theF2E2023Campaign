@@ -6,7 +6,7 @@
       </div>
     </Transition>
   </teleport>
-  <Navbar title="喵立翰 Miao Li-Han" :logo=logo :menu=menuList :social=socialList class="position-fixed z-3 top-0"></Navbar>
+  <Navbar title="喵立翰 Miao Li-Han" :logo=logo :menu=menuList :social=socialList class="position-fixed z-2 top-0"></Navbar>
   <NuxtPage :social=socialList />
 </template>
 

@@ -49,10 +49,8 @@ html {
 
 body{
     background: var(--bg, #FDFCFB);
-    margin-top: calc(var(--spacer-16, 16px)*2 + 75px);
-    @media (max-width:992px) {
-        margin-bottom: 63px;
-    }
+    position: absolute;
+    width: 100%;
 }
 
 h6,

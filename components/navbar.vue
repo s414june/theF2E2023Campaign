@@ -122,7 +122,7 @@ nav {
         }
     }
 
-    @media(max-width:992px) {
+    @media(max-width: 992px) {
         width: 100%;
         left: 0;
         position: fixed;
@@ -131,7 +131,7 @@ nav {
         ul {
             margin: 0;
             display: flex;
-            width: 992px;
+            width: 100%;
             padding: 0px var(--spacer-8, 8px);
             gap: var(--spacer-8, 8px);
             border-top: 1px solid var(--gray-50, #F8FAFC);
