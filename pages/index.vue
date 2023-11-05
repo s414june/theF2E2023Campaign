@@ -43,14 +43,14 @@
             <h2 class="page-title">最新活動</h2>
             <div class="row">
                 <template v-for="(news, index) in newsList">
-                    <div class="col-6 news-top" v-if="index === 0">
+                    <div class="col-12 col-lg-6 news-top" v-if="index === 0">
                         <img :src="news.image" :alt="news.title">
                         <span class="time">{{ news.time }}</span>
                         <h5>{{ news.title }}</h5>
                         <p>{{ news.desc }}</p>
                     </div>
                 </template>
-                <div class="col-6 news-list">
+                <div class="col-12 col-lg-6 news-list">
                     <template v-for="(news, index) in newsList">
                         <div class="row" v-if="index > 0">
                             <div class="col-4">
@@ -70,15 +70,16 @@
         <section class="page bg-white issue" id="issue">
             <h2 class="page-title">政策議題</h2>
             <div class="row">
-                <div class="col-4 issue-list d-flex flex-column justify-content-between" v-for="issue in issueList">
+                <div class="col-lg-4 col-sm-6 issue-list d-flex flex-column justify-content-between"
+                    v-for="issue in issueList">
                     <h4>{{ issue.title }}</h4>
                     <img :src="issue.image" :alt="issue.title">
                 </div>
             </div>
         </section>
-        <section class="page bg-white donate-and-mail">
-            <div class="row">
-                <Card class="bg-primary col-6 donate" id="donate">
+        <section class="page bg-white donate-and-mail" id="donate-and-mail">
+            <div class="d-flex">
+                <Card class="bg-primary donate" id="donate">
                     <h3>小額支持喵喵</h3>
                     <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
                     <div class="d-flex flex-grow-1 align-items-end justify-content-between">
@@ -86,7 +87,7 @@
                         <img src="/images/donate.png" alt="小額捐款">
                     </div>
                 </Card>
-                <Card class="bg-dark col-6 mail" id="mail">
+                <Card class="bg-dark mail" id="mail">
                     <h3>民眾服務信箱</h3>
                     <p>親愛的鄉親，每一位市民的意見都是我們社區前進的原動力</p>
                     <div class="d-flex flex-grow-1 align-items-end">
@@ -95,7 +96,7 @@
                 </Card>
             </div>
         </section>
-        <section class="page d-flex flex-column align-items-center">
+        <section class="page d-flex flex-column align-items-center bg-white">
             <h2 class="mb-2">台灣的明天 喵先鋪路</h2>
             <div class="name has-bg">
                 <span>3</span>
@@ -104,7 +105,7 @@
         </section>
         <footer class="bg-light">
             <div class="row w-100">
-                <div class="col-6">
+                <div class="col-lg-6 col-12">
                     <div class="name">
                         <span>3</span>
                         <h1>喵立翰 Miao Li-Han</h1>
@@ -116,7 +117,7 @@
                     </div>
                     <span>© 2023 喵立翰 Miao Li-Han 版權所有</span>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6 col-12">
                     <h4>競選總部</h4>
                     <ul>
                         <li>辦公室地址：喵星區，毛茸茸大道88號，喵喵大樓3樓</li>
@@ -135,6 +136,10 @@
 
     @media (max-width:992px) {
         margin-bottom: 63px;
+    }
+
+    @media (max-width:576px) {
+        margin-top: calc(14px + 72px);
     }
 }
 
@@ -157,9 +162,9 @@ main {
         }
     }
 
-    @media(max-width:992px) {
-        padding-top: 70px;
-    }
+    // @media(max-width:992px) {
+    //     padding-top: 70px;
+    // }
 }
 
 h1 {
@@ -191,9 +196,6 @@ h1 {
         text-align: center;
         word-break: keep-all;
 
-        @media(max-width:992px) {
-            font-size: 52px;
-        }
     }
 }
 
@@ -203,11 +205,13 @@ h2 {
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
     background: var(--Gradient, linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    word-break: keep-all;
+    text-align: center;
+    line-height: 1;
 }
 
 h3 {
@@ -311,6 +315,10 @@ p {
             font-weight: 700;
             line-height: normal;
         }
+
+        @media (max-width: 992px) {
+            flex-direction: column;
+        }
     }
 }
 
@@ -371,6 +379,10 @@ p {
     img {
         // width: 723px;
         width: calc(723px*100vw/1920px);
+
+        @media (max-width:992px) {
+            width: 90%;
+        }
     }
 }
 
@@ -385,10 +397,10 @@ p {
     background: var(--primary, #DA7D4A);
     overflow: hidden;
 
-    @media (max-width:992px) {
-        position: absolute;
-        top: 0;
-    }
+    // @media (max-width:992px) {
+    //     position: absolute;
+    //     top: 0;
+    // }
 
     div {
         width: -webkit-fill-available;
@@ -414,6 +426,18 @@ p {
     flex-direction: column;
     align-items: center;
     align-self: stretch;
+
+    >.row {
+        margin-top: 64px;
+    }
+
+    @media (max-width:992px) {
+        padding: 95px 36px 25px 36px;
+
+        &:last-of-type {
+            padding-bottom: 60px;
+        }
+    }
 }
 
 .claim-image {
@@ -423,6 +447,11 @@ p {
     background-size: cover;
     background-position: center;
     border-radius: 0 var(--spacer-24, 24px) var(--spacer-24, 24px) 0;
+    min-height: 245px;
+
+    @media (max-width: 992px) {
+        border-radius: 0 0 var(--spacer-24, 24px) var(--spacer-24, 24px);
+    }
 }
 
 .more-btn {
@@ -458,7 +487,26 @@ p {
         /* 21px */
     }
 
+    >.row {
+        @media (max-width:992px) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacer-24, 24px);
+            align-self: stretch;
+        }
+    }
+
     .news-top {
+        @media (max-width:992px) {
+            display: flex;
+            padding-top: var(--spacer-16, 16px);
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacer-8, 8px);
+            align-self: stretch;
+        }
+
         img {
             border-radius: var(--spacer-16, 16px);
         }
@@ -467,6 +515,16 @@ p {
     .news-list {
         img {
             border-radius: 8px;
+        }
+
+        @media (max-width: 992px) {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .more-btn {
+                width: fit-content;
+            }
         }
     }
 }
@@ -478,15 +536,35 @@ p {
         color: #FFF;
     }
 
-    .row {
+    >.d-flex {
         gap: 24px;
+
+        @media (max-width:576px) {
+            flex-direction: column;
+        }
     }
 
     .donate {
         img {
             width: 50%;
+
+            @media (max-width:576px) {
+                width: 102px;
+            }
         }
     }
+}
+
+.issue {
+    >.row {
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: var(--spacer-64, 64px) 0;
+        align-self: stretch;
+        flex-wrap: wrap;
+    }
+
 }
 
 .issue-list {
@@ -506,12 +584,15 @@ footer {
     gap: 16px;
     align-self: stretch;
 
-    .row>div {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--spacer-16, 16px);
-        flex: 1 0 0;
+    .row {
+        gap: var(--spacer-24, 24px);
+
+        >div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacer-16, 16px);
+        }
     }
 
     .name {

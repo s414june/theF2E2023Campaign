@@ -10,18 +10,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button> -->
             <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-            <div class="menu-list flex-grow-1">
-                <ul class="mb-lg-0 justify-content-center">
-                    <li class="nav-item" v-for="list in menu">
-                        <a class="nav-link d-flex flex-column justify-content-between align-items-center" :class="{ active: list.active }"
-                            aria-current="page" :href="list.href">
-                            <img :src="list.image" :alt="list.title">
-                            <div>
-                                {{ list.title }}
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+            <div class="position-lg-absolute">
+                <div class="menu-list flex-grow-1">
+                    <ul class="mb-lg-0 justify-content-center">
+                        <li class="nav-item" v-for="list in menu">
+                            <a class="nav-link d-flex flex-column justify-content-between align-items-center"
+                                :class="{ active: list.active }" aria-current="page" :href="list.href">
+                                <img :src="list.image" :alt="list.title">
+                                <div>
+                                    {{ list.title }}
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="d-flex social">
                 <a :href="list.href" v-for="list in social">
@@ -51,6 +53,11 @@ defineProps({
     menu: Array<Menu>,
     social: Array<Social>
 })
+onMounted(() => {
+    if (document.body.clientWidth >= 992) {
+
+    }
+})
 </script>
 <style scoped lang="scss">
 nav {
@@ -72,11 +79,10 @@ nav {
         border: 1px solid var(--default-white, #FFF);
         background: rgba(255, 255, 255, 0.90);
         backdrop-filter: blur(12px);
-
-        @media(max-width:992px) {
-            backdrop-filter: unset;
-        }
     }
+    @media (max-width:576px) {
+            padding: 0 0 14px 0;
+        }
 }
 
 .navbar-brand {
@@ -93,6 +99,9 @@ nav {
         font-weight: 700;
         line-height: 150%;
         /* 36px */
+        @media (max-width:576px) {
+            font-size: 20px;
+        }
     }
 }
 
@@ -123,10 +132,11 @@ nav {
     }
 
     @media(max-width: 992px) {
-        width: 100%;
-        left: 0;
+        width: calc(var(--spacer-24, 24px)*2 + 100%);
+        left: calc(0px - var(--spacer-24, 24px));
         position: fixed;
-        bottom: 0;
+        top: 100vh;
+        transform: translateY(calc(0px - var(--spacer-16, 16px) - 63px));
 
         ul {
             margin: 0;
@@ -171,6 +181,9 @@ nav {
             }
         }
     }
+    @media(max-width: 576px) {
+        transform: translateY(calc(0px - 75px + 14px));
+    }
 }
 
 .logo {
@@ -182,5 +195,26 @@ nav {
     display: flex;
     align-items: center;
     gap: var(--spacer-16, 16px);
+
+    @media(max-width:576px) {
+        display: flex;
+        padding: var(--spacer-8, 8px) var(--spacer-40, 40px);
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacer-16, 16px);
+        right: 83px;
+        bottom: 12.831px;
+        border-radius: var(--spacer-12, 12px);
+        background: #FFF;
+
+        /* Shadow/Small */
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.10);
+        position: fixed;
+        left: 50%;
+        top: 100vh;
+        transform: translate(-50%, calc(0px - 75px + 14px - 45px - 13px));
+        height: max-content;
+        width: max-content;
+    }
 }
 </style>

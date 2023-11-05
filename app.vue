@@ -50,12 +50,12 @@ const menuList = ref([{
   image:"/images/issue.svg"
 }, {
   title: "小額捐款",
-  href: "#donate",
+  href: "#donate-and-mail",
   active: false,
   image:"/images/donate.svg"
 }, {
   title: "民眾服務信箱",
-  href: "#mail",
+  href: "#donate-and-mail",
   active: false,
   image:"/images/mail.svg"
 }]);

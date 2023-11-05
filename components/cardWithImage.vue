@@ -1,12 +1,12 @@
 <template>
     <div class="card">
         <div class="row g-0">
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <div class="card-body">
                     <slot name="body"></slot>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <slot name="image"></slot>
             </div>
         </div>

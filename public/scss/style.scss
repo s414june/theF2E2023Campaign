@@ -29,9 +29,9 @@
     --primary: #DA7D4A;
     --default-white: #FFFFFF;
     --Gradient: linear-gradient(90deg, #E5793B 1.54%, #FF4185 97.86%);
-    --spacer-8: 0.5rem;
-    --spacer-16: 1rem;
-    --spacer-96: 6rem;
+    // --spacer-8: 0.5rem;
+    // --spacer-16: 1rem;
+    // --spacer-96: 6rem;
     --bs-body-bg: #FDFCFB;
 }
 
@@ -47,10 +47,11 @@ html {
     }
 }
 
-body{
+body {
     background: var(--bg, #FDFCFB);
     position: absolute;
     width: 100%;
+    color: #334155;
 }
 
 h6,
@@ -66,6 +67,18 @@ h2,
 h1,
 .h1 {
     margin-bottom: 0;
+}
+
+.slogan,
+h2 {
+    @media(max-width:992px) {
+        font-size: 52px !important;
+    }
+}
+
+ol,
+ul {
+    padding-left: 0;
 }
 
 button {
