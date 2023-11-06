@@ -34,6 +34,8 @@
     </nav>
 </template>
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
 // const title = ref("喵立翰 Miao Li-Han")
 interface Menu {
     href: string;

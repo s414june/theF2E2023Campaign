@@ -11,6 +11,8 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
+
 const mounted = ref(false);
 const animated = ref(false);
 // const nuxtApp = useNuxtApp();
