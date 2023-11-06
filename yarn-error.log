@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add @types/lottiefiles__vue-lottie-player
+  /usr/local/bin/node /usr/local/bin/yarn install
 
 PATH: 
   /usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
@@ -14,17 +14,7 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2flottiefiles__vue-lottie-player: Not found
-      at params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66145:18)
-      at self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
-      at Request.emit (node:events:517:28)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141862:10)
-      at Request.emit (node:events:517:28)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141784:12)
-      at Object.onceWrapper (node:events:631:28)
-      at IncomingMessage.emit (node:events:529:35)
-      at endReadableNT (node:internal/streams/readable:1368:12)
-      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+  Error: ENOENT: no such file or directory, open '/Users/macbookair/Library/Caches/Yarn/v6/npm-@esbuild-win32-x64-0.18.20-786c5f41f043b07afb1af39923d7c33668858f6d-integrity/node_modules/@esbuild/win32-x64/.yarn-metadata.json'
 
 npm manifest: 
   {
@@ -48,8 +38,6 @@ npm manifest:
       "vue-router": "^4.2.5"
     },
     "dependencies": {
-      "@lottiefiles/lottie-player": "^2.0.2",
-      "@lottiefiles/vue-lottie-player": "^1.1.0",
       "bootstrap": "^5.3.2",
       "eslint": "^8.52.0"
     }
@@ -741,36 +729,6 @@ Lockfile:
     integrity sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==
     dependencies:
       "@lit-labs/ssr-dom-shim" "^1.0.0"
-  
-  "@lottiefiles/lottie-player@^1.6.2":
-    version "1.7.1"
-    resolved "https://registry.npmjs.org/@lottiefiles/lottie-player/-/lottie-player-1.7.1.tgz"
-    integrity sha512-U2gokX7ZXHCD+DgRXfaFyxuVsc0SYfC2mXndnCVwGvpdApUGqvpZovihdB8p9fDKU2SBWLWBq38CuJTVz6k3Hg==
-    dependencies:
-      "@types/pako" "^1.0.1"
-      lit "^2.1.2"
-      lottie-web "^5.10.0"
-      pako "^2.0.4"
-      resize-observer-polyfill "^1.5.1"
-  
-  "@lottiefiles/lottie-player@^2.0.2":
-    version "2.0.2"
-    resolved "https://registry.npmjs.org/@lottiefiles/lottie-player/-/lottie-player-2.0.2.tgz"
-    integrity sha512-R9WF2/gFboZ0GW3QjqtbZF94JQq8oI1t5XWZPtTypvk2xTizphybZu+c08QFQbqY6rnkazHIyRBj2MK0qr6Hrw==
-    dependencies:
-      "@types/pako" "^1.0.1"
-      lit "^2.1.2"
-      lottie-web "^5.10.0"
-      pako "^2.0.4"
-      resize-observer-polyfill "^1.5.1"
-  
-  "@lottiefiles/vue-lottie-player@^1.1.0":
-    version "1.1.0"
-    resolved "https://registry.yarnpkg.com/@lottiefiles/vue-lottie-player/-/vue-lottie-player-1.1.0.tgz#a7b7b2c5d91e52289ae8aac1d508ba6e2acf6d9c"
-    integrity sha512-NX6aS+QdtHG++SUbF0um+hs9rT5ZYyWJeFzbKFPNHZxV1dk+PhREsHlPixZ4iVRW7TJndrp5FE7CAgURf59f0Q==
-    dependencies:
-      "@lottiefiles/lottie-player" "^1.6.2"
-      vue "^2.6.12"
   
   "@mapbox/node-pre-gyp@^1.0.5":
     version "1.0.11"
@@ -3595,7 +3553,7 @@ Lockfile:
     dependencies:
       "@types/trusted-types" "^2.0.2"
   
-  lit@^2.1.2:
+  lit@^2.1.2, lit@^2.7.5:
     version "2.8.0"
     resolved "https://registry.npmjs.org/lit/-/lit-2.8.0.tgz"
     integrity sha512-4Sc3OFX9QHOJaHbmTMk28SYgVxLN3ePDjg7hofEft2zWlehFL3LiAuapWc4U/kYwMYJSh2hTCPZ6/LIC7ii0MA==
@@ -3663,11 +3621,6 @@ Lockfile:
     version "4.17.21"
     resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
     integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
-  
-  lottie-web@^5.10.0:
-    version "5.12.2"
-    resolved "https://registry.npmjs.org/lottie-web/-/lottie-web-5.12.2.tgz"
-    integrity sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==
   
   lru-cache@^10.0.0, lru-cache@^10.0.1, "lru-cache@^9.1.1 || ^10.0.0":
     version "10.0.1"

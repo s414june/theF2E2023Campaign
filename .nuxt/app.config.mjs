@@ -1,10 +1,10 @@
 
-import { updateAppConfig } from '#app'
-import { defuFn } from '/Users/macbookair/Documents/GitHub/theF2E2023Campaign/node_modules/defu/dist/defu.mjs'
+import { updateAppConfig } from '#app/config'
+import { defuFn } from 'defu'
 
 const inlineConfig = {
   "nuxt": {
-    "buildId": "test"
+    "buildId": "c0fd2290-6d39-45fa-a55c-c35de47ce9c0"
   }
 }
 
