@@ -3,18 +3,24 @@
         <main>
             <div>
                 <section class="lead">
-                    <h1 class="slogan">台灣的明天 喵先鋪路</h1>
-                    <section class="info">
-                        <button>2024 立委參選人</button>
-                        <div class="name has-bg">
-                            <span>3</span>
-                            <h1>喵立翰 Miao Li-Han</h1>
-                        </div>
-                    </section>
+                    <Transition style="transition-delay: 0.5s" >
+                        <h1 class="slogan" v-if="canAnimate">台灣的明天 喵先鋪路</h1>
+                    </Transition>
+                    <Transition style="transition-delay: 1s" >
+                        <section class="info" v-if="canAnimate">
+                            <button>2024 立委參選人</button>
+                            <div class="name has-bg">
+                                <span>3</span>
+                                <h1>喵立翰 Miao Li-Han</h1>
+                            </div>
+                        </section>
+                    </Transition>
                 </section>
-                <div class="lead-image">
-                    <img src="/images/lead.png" alt="喵立翰 Miao Li-Han 頭像">
-                </div>
+                <Transition style="transition-delay: 1.5s" >
+                    <div class="lead-image" v-if="canAnimate">
+                        <img src="/images/lead.png" alt="喵立翰 Miao Li-Han 頭像">
+                    </div>
+                </Transition>
             </div>
             <div class="marquee">
                 <div>
@@ -656,7 +662,6 @@ footer {
 </style>
 <script setup  lang="ts">
 import { ref } from 'vue';
-
 interface Social {
     src: string;
     alt: string;
@@ -664,7 +669,8 @@ interface Social {
     href: string;
 }
 defineProps({
-    social: Array<Social>
+    social: Array<Social>,
+    canAnimate: Boolean
 })
 const newsList = ref([
     {

@@ -138,7 +138,7 @@ nav {
         left: calc(0px - var(--spacer-24, 24px));
         position: fixed;
         top: 100vh;
-        transform: translateY(calc(0px - var(--spacer-16, 16px) - 63px));
+        transform: translateY(calc(0px - var(--spacer-16, 16px) - 67px));
 
         ul {
             margin: 0;
@@ -184,7 +184,7 @@ nav {
         }
     }
     @media(max-width: 576px) {
-        transform: translateY(calc(0px - 75px + 14px));
+        transform: translateY(-67px);
     }
 }
 
