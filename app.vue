@@ -3,7 +3,7 @@
     <Transition>
       <div v-if="!mounted || !animated"
         class="w-100 vh-100 bg-white z-3 position-fixed d-flex justify-content-center align-items-center">
-        <img src="@/images/loading.gif" alt="loading...">
+        <img src="/images/loading.gif" alt="loading...">
       </div>
     </Transition>
   </teleport>
@@ -32,7 +32,7 @@ setTimeout(() => {
 }, 1500);
 
 const logo = ref({
-  src: "/_nuxt/assets/images/logo.svg",
+  src: "/images/logo.svg",
   alt: "喵立翰 Miao Li-Han 競選Logo",
   title: "喵立翰 Miao Li-Han 競選Logo"
 })
@@ -40,41 +40,41 @@ const menuList = ref([{
   title: "候選人主張",
   href: "#claim",
   active: false,
-  image: "/_nuxt/assets/images/claim.svg"
+  image: "/images/claim.svg"
 },
 {
   title: "最新活動",
   href: "#news",
   active: false,
-  image: "/_nuxt/assets/images/news.svg"
+  image: "/images/news.svg"
 }, {
   title: "政策議題",
   href: "#issue",
   active: false,
-  image: "/_nuxt/assets/images/issue.svg"
+  image: "/images/issue.svg"
 }, {
   title: "小額捐款",
   href: "#donate-and-mail",
   active: false,
-  image: "/_nuxt/assets/images/donate.svg"
+  image: "/images/donate.svg"
 }, {
   title: "民眾服務信箱",
   href: "#donate-and-mail",
   active: false,
-  image: "/_nuxt/assets/images/mail.svg"
+  image: "/images/mail.svg"
 }]);
 const socialList = ref([{
-  src: "/_nuxt/assets/images/fb.svg",
+  src: "/images/fb.svg",
   alt: "facebook",
   title: "facebook",
   href: "#"
 }, {
-  src: "/_nuxt/assets/images/ig.svg",
+  src: "/images/ig.svg",
   alt: "instagram",
   title: "instagram",
   href: "#"
 }, {
-  src: "/_nuxt/assets/images/yt.svg",
+  src: "/images/yt.svg",
   alt: "youtube",
   title: "youtube",
   href: "#"
