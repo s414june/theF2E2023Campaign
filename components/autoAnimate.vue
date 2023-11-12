@@ -1,8 +1,10 @@
 <template>
   <Transition>
     <div
-      class="scroll-animate"
+      class="auto-animate w-100 d-flex justify-content-center align-items-center"
       :class="[{ 'is-animate': isAnimate }, animateClass ? animateClass : '']"
+      :style="animateStyle"
+      :canAnimate="canAnimate"
       ref="scrollAnimate"
     >
       <slot></slot>
@@ -10,7 +12,7 @@
   </Transition>
 </template>
 <style lang="scss">
-.scroll-animate {
+.auto-animate {
   opacity: 0;
   transition: 0.5s;
   &.right-to-left {
@@ -27,17 +29,19 @@
 }
 </style>
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 const props = defineProps({
   animateClass: String,
+  animateStyle: String,
+  canAnimate: Boolean,
 });
 const isAnimate = ref(false);
 const scrollAnimate = ref<HTMLElement | null>(null);
-onMounted(() => {
-  window.addEventListener("scroll", () => {
-    if (!scrollAnimate.value) return;
-    let scrollPosition = scrollAnimate.value.offsetTop - window.innerHeight / 2 ;
-    if (window.scrollY >= scrollPosition) isAnimate.value = true;
-  });
-});
+watch(
+  () => props.canAnimate,
+  (canAnimate) => {
+    if (canAnimate) isAnimate.value = true;
+  },
+  { immediate: true }
+);
 </script>

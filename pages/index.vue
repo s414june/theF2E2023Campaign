@@ -3,35 +3,35 @@
     <main>
       <div>
         <section class="lead">
-          <Transition style="transition-delay: 0.5s">
-            <h1 class="slogan" v-if="canAnimate">台灣的明天 喵先鋪路</h1>
-          </Transition>
-          <Transition style="transition-delay: 1s">
-            <section class="info" v-if="canAnimate">
+          <AutoAnimate animateStyle="transition-delay: 0.5s" :canAnimate="canAnimate">
+            <h1 class="slogan">台灣的明天 喵先鋪路</h1>
+          </AutoAnimate>
+          <AutoAnimate animateStyle="transition-delay: 1s" :canAnimate="canAnimate">
+            <section class="info">
               <button>2024 立委參選人</button>
               <div class="name has-bg">
                 <span>3</span>
                 <h1>喵立翰 Miao Li-Han</h1>
               </div>
             </section>
-          </Transition>
+          </AutoAnimate>
         </section>
-        <Transition style="transition-delay: 1.5s">
-          <div class="lead-image" v-if="canAnimate">
+        <AutoAnimate animateStyle="transition-delay: 1.5s" :canAnimate="canAnimate">
+          <div class="lead-image">
             <img src="@/images/lead.png" alt="喵立翰 Miao Li-Han 頭像" />
           </div>
-        </Transition>
+        </AutoAnimate>
       </div>
       <div class="marquee">
-        <div>
+        <scrollAnimate animateClass="right-to-left">
           <span>
             為喵星人，護台灣！ 從喵的眼中，看見台灣 喵的未來，人的希望
           </span>
-        </div>
+        </scrollAnimate>
       </div>
     </main>
-    <scrollAnimate>
-      <section class="page bg-light claim" id="claim">
+    <section class="page bg-light claim" id="claim">
+      <scrollAnimate>
         <CardWithImage>
           <template v-slot:body>
             <h2 class="page-title">候選人主張</h2>
@@ -49,8 +49,8 @@
             <div class="claim-image"></div>
           </template>
         </CardWithImage>
-      </section>
-    </scrollAnimate>
+      </scrollAnimate>
+    </section>
     <section class="page bg-white news" id="news">
       <scrollAnimate>
         <h2 class="page-title">最新活動</h2>
