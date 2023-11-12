@@ -1,5 +1,5 @@
 <template>
-  <teleport to="body">
+  <teleport to="body" :class="{'overflow-hidden':!mounted || !animated}">
     <Transition>
       <div v-if="!mounted || !animated"
         class="w-100 vh-100 bg-white z-3 position-fixed d-flex justify-content-center align-items-center">
@@ -9,7 +9,7 @@
   </teleport>
   <Navbar title="喵立翰 Miao Li-Han" :logo=logo :menu=menuList
     :social=socialList class="position-fixed z-2 top-0"></Navbar>
-  <NuxtPage :social=socialList :canAnimate="mounted && animated" />
+  <NuxtPage :social=socialList :canAnimate="mounted && animated"/>
 </template>
 
 <script setup lang="ts">

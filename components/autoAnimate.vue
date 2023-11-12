@@ -1,15 +1,13 @@
 <template>
-  <Transition>
-    <div
-      class="auto-animate w-100 d-flex justify-content-center align-items-center"
-      :class="[{ 'is-animate': isAnimate }, animateClass ? animateClass : '']"
-      :style="animateStyle"
-      :canAnimate="canAnimate"
-      ref="scrollAnimate"
-    >
-      <slot></slot>
-    </div>
-  </Transition>
+  <div
+    class="auto-animate w-100 d-flex justify-content-center align-items-center"
+    :class="[{ 'is-animate': isAnimate }, animateClass ? animateClass : '']"
+    :style="animateStyle"
+    :canAnimate="canAnimate"
+    ref="scrollAnimate"
+  >
+    <slot></slot>
+  </div>
 </template>
 <style lang="scss">
 .auto-animate {

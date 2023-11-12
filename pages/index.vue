@@ -1,12 +1,18 @@
 <template>
-  <div id="app">
+  <div id="app" class="mw-100">
     <main>
       <div>
         <section class="lead">
-          <AutoAnimate animateStyle="transition-delay: 0.5s" :canAnimate="canAnimate">
+          <AutoAnimate
+            animateStyle="transition-delay: 0.5s"
+            :canAnimate="canAnimate"
+          >
             <h1 class="slogan">台灣的明天 喵先鋪路</h1>
           </AutoAnimate>
-          <AutoAnimate animateStyle="transition-delay: 1s" :canAnimate="canAnimate">
+          <AutoAnimate
+            animateStyle="transition-delay: 1s"
+            :canAnimate="canAnimate"
+          >
             <section class="info">
               <button>2024 立委參選人</button>
               <div class="name has-bg">
@@ -16,22 +22,25 @@
             </section>
           </AutoAnimate>
         </section>
-        <AutoAnimate animateStyle="transition-delay: 1.5s" :canAnimate="canAnimate">
+        <AutoAnimate
+          animateStyle="transition-delay: 1.5s"
+          :canAnimate="canAnimate"
+        >
           <div class="lead-image">
             <img src="@/images/lead.png" alt="喵立翰 Miao Li-Han 頭像" />
           </div>
         </AutoAnimate>
       </div>
       <div class="marquee">
-        <scrollAnimate animateClass="right-to-left">
+        <ScrollAnimate animateClass="right-to-left">
           <span>
             為喵星人，護台灣！ 從喵的眼中，看見台灣 喵的未來，人的希望
           </span>
-        </scrollAnimate>
+        </ScrollAnimate>
       </div>
     </main>
     <section class="page bg-light claim" id="claim">
-      <scrollAnimate>
+      <ScrollAnimate>
         <CardWithImage>
           <template v-slot:body>
             <h2 class="page-title">候選人主張</h2>
@@ -49,13 +58,13 @@
             <div class="claim-image"></div>
           </template>
         </CardWithImage>
-      </scrollAnimate>
+      </ScrollAnimate>
     </section>
     <section class="page bg-white news" id="news">
-      <scrollAnimate>
+      <ScrollAnimate>
         <h2 class="page-title">最新活動</h2>
-      </scrollAnimate>
-      <scrollAnimate>
+      </ScrollAnimate>
+      <ScrollAnimate>
         <div class="row">
           <template v-for="(news, index) in newsList">
             <div class="col-12 col-lg-6 news-top" v-if="index === 0">
@@ -81,13 +90,13 @@
             <ButtomWithGoto class="more-btn" text="查看更多"></ButtomWithGoto>
           </div>
         </div>
-      </scrollAnimate>
+      </ScrollAnimate>
     </section>
     <section class="page bg-white issue" id="issue">
-      <scrollAnimate>
+      <ScrollAnimate>
         <h2 class="page-title">政策議題</h2>
-      </scrollAnimate>
-      <scrollAnimate>
+      </ScrollAnimate>
+      <ScrollAnimate>
         <div class="row">
           <div
             class="col-lg-4 col-sm-6 issue-list d-flex flex-column justify-content-between"
@@ -97,11 +106,11 @@
             <img :src="issue.image" :alt="issue.title" />
           </div>
         </div>
-      </scrollAnimate>
+      </ScrollAnimate>
     </section>
-    <scrollAnimate>
-      <section class="page bg-white donate-and-mail" id="donate-and-mail">
-        <div class="d-flex">
+    <section class="page bg-white donate-and-mail" id="donate-and-mail">
+      <div class="d-flex">
+        <ScrollAnimate>
           <Card class="bg-primary donate" id="donate">
             <h3>小額支持喵喵</h3>
             <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
@@ -112,6 +121,8 @@
               <img src="@/images/donate.png" alt="小額捐款" />
             </div>
           </Card>
+        </ScrollAnimate>
+        <ScrollAnimate>
           <Card class="bg-dark mail" id="mail">
             <h3>民眾服務信箱</h3>
             <p>親愛的鄉親，每一位市民的意見都是我們社區前進的原動力</p>
@@ -119,10 +130,10 @@
               <ButtomWithGoto text="填寫表單"></ButtomWithGoto>
             </div>
           </Card>
-        </div>
-      </section>
-    </scrollAnimate>
-    <scrollAnimate>
+        </ScrollAnimate>
+      </div>
+    </section>
+    <ScrollAnimate>
       <section class="page d-flex flex-column align-items-center bg-white">
         <h2 class="mb-2">台灣的明天 喵先鋪路</h2>
         <div class="name has-bg">
@@ -130,7 +141,7 @@
           <h1>喵立翰 Miao Li-Han</h1>
         </div>
       </section>
-    </scrollAnimate>
+    </ScrollAnimate>
     <footer class="bg-light">
       <div class="row w-100">
         <div class="col-lg-6 col-12">

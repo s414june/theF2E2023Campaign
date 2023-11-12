@@ -33,11 +33,16 @@ const props = defineProps({
 });
 const isAnimate = ref(false);
 const scrollAnimate = ref<HTMLElement | null>(null);
+const handleScroll = function(){
+  if (!scrollAnimate.value || isAnimate.value) return;
+    let scrollPosition = scrollAnimate.value.offsetTop - window.innerHeight / 2;
+    if (window.scrollY >= scrollPosition){
+      isAnimate.value = true;
+      scrollAnimate.value.removeEventListener("scroll", handleScroll, true);
+    }
+}
 onMounted(() => {
-  window.addEventListener("scroll", () => {
-    if (!scrollAnimate.value) return;
-    let scrollPosition = scrollAnimate.value.offsetTop - window.innerHeight / 2 ;
-    if (window.scrollY >= scrollPosition) isAnimate.value = true;
-  });
+  window.addEventListener("scroll", handleScroll);
 });
+
 </script>
