@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import * as path from 'path'
 export default defineNuxtConfig({
   devtools: { enabled: false },
   $meta: {
@@ -14,6 +15,6 @@ export default defineNuxtConfig({
   },
   css: ["/assets/scss/app.scss"],
   alias:{
-    "@": "/assets",
+    '@': path.resolve(__dirname, 'assets'),
   }
 })
