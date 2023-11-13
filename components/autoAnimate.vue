@@ -13,14 +13,14 @@
 .auto-animate {
   opacity: 0;
   transition: 0.5s;
-  &.right-to-left {
+  &.right-to-left-infinite {
     transform: translateX(100%);
   }
 
   &.is-animate {
     opacity: 1;
     transition: 0.5s;
-    &.right-to-left {
+    &.right-to-left-infinite {
       transform: translateX(0);
     }
   }

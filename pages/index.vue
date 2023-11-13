@@ -22,25 +22,23 @@
             </section>
           </AutoAnimate>
         </section>
-        <AutoAnimate
-          animateStyle="transition-delay: 1.5s"
-          :canAnimate="canAnimate"
-        >
-          <div class="lead-image">
+        <div class="lead-image">
+          <AutoAnimate
+            animateStyle="transition-delay: 1.5s"
+            :canAnimate="canAnimate"
+          >
             <img src="/images/lead.png" alt="喵立翰 Miao Li-Han 頭像" />
-          </div>
-        </AutoAnimate>
+          </AutoAnimate>
+        </div>
       </div>
       <div class="marquee">
-        <ScrollAnimate animateClass="right-to-left">
-          <span>
-            為喵星人，護台灣！ 從喵的眼中，看見台灣 喵的未來，人的希望
-          </span>
+        <ScrollAnimate animateClass="right-to-left-infinite">
+          為喵星人，護台灣！ 從喵的眼中，看見台灣 喵的未來，人的希望
         </ScrollAnimate>
       </div>
     </main>
     <section class="page bg-light claim" id="claim">
-      <ScrollAnimate>
+      <ScrollAnimate animateClass="down-to-top">
         <CardWithImage>
           <template v-slot:body>
             <h2 class="page-title">候選人主張</h2>
@@ -66,14 +64,56 @@
       </ScrollAnimate>
       <ScrollAnimate>
         <div class="row">
-          <template v-for="(news, index) in newsList">
-            <div class="col-12 col-lg-6 news-top" v-if="index === 0">
-              <img :src="news.image" :alt="news.title" />
-              <span class="time">{{ news.time }}</span>
-              <h5>{{ news.title }}</h5>
-              <p>{{ news.desc }}</p>
+          <div
+            class="col-12 col-lg-6 news-top"
+            data-bs-toggle="modal"
+            data-bs-target="#news"
+          >
+            <img :src="newsList[0].image" :alt="newsList[0].title" />
+            <span class="time">{{ newsList[0].time }}</span>
+            <h5>{{ newsList[0].title }}</h5>
+            <p>{{ newsList[0].desc }}</p>
+          </div>
+          <Modal modalName="news">
+            <div class="modal-header border-0">
+              <h5 class="modal-title">最新活動</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
-          </template>
+            <div class="modal-body news">
+              <div class="row">
+                <div
+                  class="col-12 col-lg-6 news-top"
+                  data-bs-toggle="modal"
+                  data-bs-target="#news"
+                >
+                  <img :src="newsList[0].image" :alt="newsList[0].title" />
+                  <p>{{ newsList[0].title }}</p>
+                </div>
+                <div class="col-12 col-lg-6 news-list">
+                  <h5>{{ newsList[0].title }}</h5>
+                  <span class="time">{{ newsList[0].time }}</span>
+                  <p>{{ newsList[0].desc }}</p>
+                  <template v-for="(news, index) in newsList">
+                    <div class="row" v-if="index > 0">
+                      <div class="col-4">
+                        <img :src="news.image" :alt="news.title" />
+                      </div>
+                      <div class="col-8">
+                        <span class="time">{{ news.time }}</span>
+                        <h6>{{ news.title }}</h6>
+                        <p>{{ news.desc }}</p>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </Modal>
           <div class="col-12 col-lg-6 news-list">
             <template v-for="(news, index) in newsList">
               <div class="row" v-if="index > 0">
@@ -93,7 +133,7 @@
       </ScrollAnimate>
     </section>
     <section class="page bg-white issue" id="issue">
-      <ScrollAnimate>
+      <ScrollAnimate animateClass="left-to-right">
         <h2 class="page-title">政策議題</h2>
       </ScrollAnimate>
       <ScrollAnimate>
@@ -110,8 +150,8 @@
     </section>
     <section class="page bg-white donate-and-mail" id="donate-and-mail">
       <div class="d-flex">
-        <ScrollAnimate>
-          <Card class="bg-primary donate" id="donate">
+        <ScrollAnimate animateClass="right-to-left">
+          <Card class="bg-primary donate h-100" id="donate">
             <h3>小額支持喵喵</h3>
             <p>您的小筆捐款，是每隻毛孩未來的大大動力！</p>
             <div
@@ -122,8 +162,8 @@
             </div>
           </Card>
         </ScrollAnimate>
-        <ScrollAnimate>
-          <Card class="bg-dark mail" id="mail">
+        <ScrollAnimate animateClass="right-to-left">
+          <Card class="bg-dark mail h-100" id="mail">
             <h3>民眾服務信箱</h3>
             <p>親愛的鄉親，每一位市民的意見都是我們社區前進的原動力</p>
             <div class="d-flex flex-grow-1 align-items-end">
@@ -133,18 +173,27 @@
         </ScrollAnimate>
       </div>
     </section>
-    <ScrollAnimate>
-      <section class="page d-flex flex-column align-items-center bg-white">
-        <h2 class="mb-2">台灣的明天 喵先鋪路</h2>
-        <div class="name has-bg">
-          <span>3</span>
-          <h1>喵立翰 Miao Li-Han</h1>
+    <section class="page d-flex flex-column align-items-center bg-white">
+      <ScrollAnimate animateClass="big-to-small">
+        <div
+          @mouseover="bigger = true"
+          @mouseleave="bigger = false"
+          @touchstart="bigger = true"
+          @touchend="bigger = false"
+          :class="{ bigger: bigger }"
+          class="need-bigger"
+        >
+          <h2 class="mb-2">台灣的明天 喵先鋪路</h2>
+          <div class="name has-bg">
+            <span>3</span>
+            <h1>喵立翰 Miao Li-Han</h1>
+          </div>
         </div>
-      </section>
-    </ScrollAnimate>
+      </ScrollAnimate>
+    </section>
     <footer class="bg-light">
       <div class="row w-100">
-        <div class="col-lg-6 col-12">
+        <div class="col-lg-6 col-12 flex-column pb-5">
           <div class="name">
             <span>3</span>
             <h1>喵立翰 Miao Li-Han</h1>
@@ -156,7 +205,7 @@
           </div>
           <span>© 2023 喵立翰 Miao Li-Han 版權所有</span>
         </div>
-        <div class="col-lg-6 col-12">
+        <div class="col-lg-6 col-12 flex-column">
           <h4>競選總部</h4>
           <ul>
             <li>辦公室地址：喵星區，毛茸茸大道88號，喵喵大樓3樓</li>
@@ -182,18 +231,10 @@
 }
 
 main {
-  position: relative;
-
   > div {
-    display: flex;
     padding: 0px calc(276px * 100vw / 1920px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: var(--spacer-8, 8px);
-    align-self: stretch;
     background: var(--default-white, #fff);
-    position: relative;
 
     @media (max-width: 992px) {
       padding: 0px 36px;
@@ -431,13 +472,7 @@ p {
 }
 
 .marquee {
-  width: 100%;
-  display: flex;
   padding: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacer-24, 24px);
-  align-self: stretch;
   background: var(--primary, #da7d4a);
   overflow: hidden;
 
@@ -447,20 +482,17 @@ p {
   // }
 
   div {
-    width: -webkit-fill-available;
-
-    span {
-      color: var(--default-white, #fff);
-      font-feature-settings: "clig" off, "liga" off;
-      font-family: Mantou Sans;
-      font-size: 4rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 105%;
-      /* 67.2px */
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
+    width: max-content;
+    color: var(--default-white, #fff);
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Mantou Sans;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 105%;
+    /* 67.2px */
+    letter-spacing: 2px;
+    white-space: nowrap;
   }
 }
 
@@ -628,11 +660,10 @@ footer {
   align-self: stretch;
 
   .row {
-    gap: var(--spacer-24, 24px);
+    // gap: var(--spacer-24, 24px);
 
     > div {
       display: flex;
-      flex-direction: column;
       align-items: flex-start;
       gap: var(--spacer-16, 16px);
     }
@@ -695,6 +726,13 @@ footer {
     /* 24px */
   }
 }
+.need-bigger {
+  transition: 0.8s;
+  &.bigger {
+    transition: 0.8s;
+    transform: scale(1.5);
+  }
+}
 </style>
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
@@ -708,6 +746,7 @@ defineProps({
   social: Array<Social>,
   canAnimate: Boolean,
 });
+const bigger = ref(false);
 const newsList = ref([
   {
     title: "參與台北寵物論壇，爭取貓咪友善環境",
