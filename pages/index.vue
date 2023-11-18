@@ -132,12 +132,12 @@
         </div>
       </ScrollAnimate>
     </section>
-    <section class="page bg-white issue" id="issue">
+    <section class="page bg-white issue w-100 position-relative" id="issue">
       <ScrollAnimate animateClass="left-to-right">
         <h2 class="page-title">政策議題</h2>
       </ScrollAnimate>
       <ScrollAnimate>
-        <div class="row">
+        <div class="row w-100">
           <div
             class="col-lg-4 col-sm-6 issue-list d-flex flex-column justify-content-between"
             v-for="issue in issueList"

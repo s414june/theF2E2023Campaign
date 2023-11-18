@@ -1,7 +1,7 @@
 <template>
   <Transition>
     <div
-      class="scroll-animate"
+      class="scroll-animate w-100"
       :class="[{ 'is-animate': isAnimate }, animateClass ? animateClass : '']"
       ref="scrollAnimate"
     >
@@ -19,18 +19,18 @@
     transition: 0.8s;
     &.right-to-left-infinite {
       animation: right-to-left-infinite 10s infinite;
-      animation-timing-function:linear;
+      animation-timing-function: linear;
     }
-    &.down-to-top{
+    &.down-to-top {
       animation: down-to-top 0.8s;
     }
-    &.left-to-right{
+    &.left-to-right {
       animation: left-to-right 0.8s;
     }
-    &.right-to-left{
+    &.right-to-left {
       animation: right-to-left 0.8s;
     }
-    &.big-to-small{
+    &.big-to-small {
       animation: big-to-small 0.8s;
     }
   }
@@ -47,43 +47,43 @@
   80% {
     opacity: 1;
   }
-  99%{
+  99% {
     opacity: 0;
     transform: translateX(calc(0px - 100%));
   }
-  100%{
+  100% {
     opacity: 0;
   }
 }
-@keyframes down-to-top{
+@keyframes down-to-top {
   0% {
-    transform: translateY(100vh);
+    transform: translateY(calc(100 * var(--vh)));
   }
-  100%{
+  100% {
     transform: translateY(0);
   }
 }
-@keyframes left-to-right{
+@keyframes left-to-right {
   0% {
-    transform: translateX(-100vw);
+    transform: translateX(calc(0px - 100 * var(--vh)));
   }
-  100%{
+  100% {
     transform: translateY(0);
   }
 }
-@keyframes right-to-left{
+@keyframes right-to-left {
   0% {
-    transform: translateX(100vw);
+    transform: translateX(calc(100 * var(--vh)));
   }
-  100%{
+  100% {
     transform: translateY(0);
   }
 }
-@keyframes big-to-small{
+@keyframes big-to-small {
   0% {
     transform: scale(1.5);
   }
-  100%{
+  100% {
     transform: scale(1);
   }
 }
